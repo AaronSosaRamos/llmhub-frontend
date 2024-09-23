@@ -21,7 +21,7 @@ const services = [
 export default function MainScreen() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-10 px-6">
-      <h1 className="text-center text-4xl font-bold text-gray-900 dark:text-white mb-10">Welcome to LLMHub</h1>
+      <h1 className="text-center text-4xl font-bold text-gray-900 dark:text-white mb-10">Welcome to LLMHub 🤖</h1>
       <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Your hub for everything related to Large Language Models (LLMs)</p>
 
       <motion.div
