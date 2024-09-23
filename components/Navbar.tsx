@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false); // Estado para controlar si Services está desplegado en móvil
+  const [servicesOpen, setServicesOpen] = useState(false); 
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -36,22 +36,18 @@ export default function Navbar() {
     <nav className="w-full bg-white dark:bg-gray-900 shadow-lg top-0 z-50 border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo alineado a la izquierda */}
           <div className="flex items-center">
             <Link href="/">
               <span className="text-2xl font-bold text-gray-900 dark:text-white">LLMHub</span>
             </Link>
           </div>
 
-          {/* Menú de opciones y toggle */}
           <div className="flex items-center space-x-4">
-            {/* Menú en pantallas grandes */}
             <div className="hidden md:flex space-x-8">
               <Link href="/">
                 <span className="text-gray-900 dark:text-white">Home</span>
               </Link>
 
-              {/* Dropdown Services */}
               <Menu as="div" className="relative">
                 <Menu.Button className="text-gray-900 dark:text-white flex items-center">
                   Services <FaChevronDown className="ml-2" />
@@ -92,7 +88,6 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Toggle de tema oscuro después del menú */}
             <button
               onClick={toggleDarkMode}
               className="text-gray-900 dark:text-white text-xl focus:outline-none"
@@ -100,7 +95,6 @@ export default function Navbar() {
               {darkMode ? <FaSun /> : <FaMoon />}
             </button>
 
-            {/* Menú para móviles */}
             <div className="md:hidden flex items-center">
               <button onClick={() => setMenuOpen(!menuOpen)} className="text-gray-900 dark:text-white">
                 {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -110,7 +104,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menú desplegable en móvil */}
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-800 py-2 border-t border-gray-200 dark:border-gray-700">
           <div className="space-y-2">
@@ -118,7 +111,6 @@ export default function Navbar() {
               <span className="block text-center text-gray-900 dark:text-white">Home</span>
             </Link>
 
-            {/* Dropdown en móvil, ahora correctamente alineado */}
             <button
               onClick={() => setServicesOpen(!servicesOpen)}
               className="block w-full text-center text-gray-900 dark:text-white flex justify-center items-center"
