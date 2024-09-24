@@ -1,65 +1,64 @@
 import { useState } from 'react';
-import { FaRobot, FaCodeBranch, FaToolbox, FaDatabase, FaServer, FaCog } from 'react-icons/fa';
-import { GiArtificialHive } from 'react-icons/gi';
+import { FaCogs, FaSyncAlt, FaTools, FaLayerGroup, FaBrain, FaChartLine, FaDatabase } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const openSourceSections = [
+const fineTuningSections = [
   {
-    name: 'Open-Source LLM Models',
-    description: 'Discover open-source language models like GPT, BERT, and more.',
-    icon: <FaRobot />,
-    link: '/open-source/llm-models',
+    name: 'Task-Specific Fine-Tuning',
+    description: 'Adapt LLMs for specific tasks like text classification or summarization.',
+    icon: <FaCogs />,
+    link: '/fine-tuning/task-specific',
     bgColor: 'bg-blue-500',
   },
   {
-    name: 'Libraries & Frameworks',
-    description: 'Explore libraries and frameworks that power LLM development.',
-    icon: <FaToolbox />,
-    link: '/open-source/libraries',
+    name: 'Transfer Learning',
+    description: 'Leverage pre-trained models and transfer them to new domains or tasks.',
+    icon: <FaSyncAlt />,
+    link: '/fine-tuning/transfer-learning',
     bgColor: 'bg-green-500',
   },
   {
-    name: 'Datasets for Training',
-    description: 'Access public datasets used for training LLMs.',
-    icon: <FaDatabase />,
-    link: '/open-source/datasets',
+    name: 'Domain-Specific Fine-Tuning',
+    description: 'Fine-tune LLMs on specialized datasets for fields like law or medicine.',
+    icon: <FaTools />,
+    link: '/fine-tuning/domain-specific',
     bgColor: 'bg-yellow-500',
   },
   {
-    name: 'Model Deployment Tools',
-    description: 'Explore tools to deploy and serve language models at scale.',
-    icon: <FaServer />,
-    link: '/open-source/deployment-tools',
+    name: 'Multitask Fine-Tuning',
+    description: 'Train models on multiple tasks simultaneously to improve performance.',
+    icon: <FaLayerGroup />,
+    link: '/fine-tuning/multitask',
     bgColor: 'bg-orange-500',
   },
   {
-    name: 'Model Optimization',
-    description: 'Discover tools for optimizing models for faster inference.',
-    icon: <FaCog />,
-    link: '/open-source/model-optimization',
+    name: 'Parameter Efficient Fine-Tuning',
+    description: 'Explore methods like LoRA, Adapters, and prefix tuning to save computation.',
+    icon: <FaChartLine />,
+    link: '/fine-tuning/parameter-efficient',
     bgColor: 'bg-red-500',
   },
   {
-    name: 'Architecture Research',
-    description: 'Access resources related to the architecture of LLMs.',
-    icon: <GiArtificialHive />,
-    link: '/open-source/architecture',
-    bgColor: 'bg-purple-500',
+    name: 'Continual Fine-Tuning',
+    description: 'Update models continuously as new data becomes available.',
+    icon: <FaBrain />,
+    link: '/fine-tuning/continual',
+    bgColor: 'bg-teal-500',
   },
   {
-    name: 'Open-Source LLM Tools',
-    description: 'Tools and utilities to help with LLM training and evaluation.',
-    icon: <FaCodeBranch />,
-    link: '/open-source/tools',
-    bgColor: 'bg-teal-500',
+    name: 'Dataset Selection & Preparation',
+    description: 'Prepare and curate datasets for effective fine-tuning of models.',
+    icon: <FaDatabase />,
+    link: '/fine-tuning/dataset-selection',
+    bgColor: 'bg-purple-500',
   },
 ];
 
-export default function OpenSourceScreen() {
+export default function FineTuningScreen() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredSections = openSourceSections.filter(section =>
+  const filteredSections = fineTuningSections.filter(section =>
     section.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -71,7 +70,7 @@ export default function OpenSourceScreen() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Open Source for LLMs 💻
+        Fine-Tuning Techniques for LLMs 🛠️
       </motion.h1>
 
       <motion.p
@@ -80,14 +79,14 @@ export default function OpenSourceScreen() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        Explore open-source projects, models, datasets, tools, and libraries for Large Language Models.
+        Explore various techniques and methods to fine-tune Large Language Models for specialized tasks and domains.
       </motion.p>
 
       <div className="flex justify-center mb-8">
         <input
           type="text"
-          className="w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
-          placeholder="Search for a section..."
+          className="text-black w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+          placeholder="Search for a technique..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -105,7 +104,6 @@ export default function OpenSourceScreen() {
         {filteredSections.map((section, index) => (
           <Link href={section.link} key={index}>
             <motion.div
-              key={index}
               className={`p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 ${section.bgColor} cursor-pointer`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
