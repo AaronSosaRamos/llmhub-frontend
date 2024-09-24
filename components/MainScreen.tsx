@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaRobot, FaCogs, FaBook, FaNetworkWired, FaShieldAlt, FaProjectDiagram, FaSearch, FaToolbox } from 'react-icons/fa';
 import { GiArtificialHive } from 'react-icons/gi';
 import { motion } from 'framer-motion';
@@ -20,10 +21,26 @@ const services = [
 ];
 
 export default function MainScreen() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredServices = services.filter(service =>
+    service.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-10 px-6">
       <h1 className="text-center text-4xl font-bold text-gray-900 dark:text-white mb-10">Welcome to LLMHub 🤖</h1>
       <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-6">Your hub for everything related to Large Language Models (LLMs)</p>
+
+      <div className="flex justify-center mb-8">
+        <input
+          type="text"
+          className="text-black w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+          placeholder="Search for a service..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
 
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -34,7 +51,7 @@ export default function MainScreen() {
           visible: { opacity: 1, transition: { delay: 0.2, staggerChildren: 0.1 } },
         }}
       >
-        {services.map((service, index) => (
+        {filteredServices.map((service, index) => (
           <Link href={service.link} key={index}>
             <motion.div
               key={index}
