@@ -20,7 +20,7 @@ export default function Navbar() {
   const services = [
     'Fundamentals',
     'Prompt Engineering',
-    'RAG (Retrieval-Augmented Generation)',
+    'RAG',
     'Papers',
     'Open Source',
     'Fine-Tuning',

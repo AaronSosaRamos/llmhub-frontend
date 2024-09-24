@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FaRobot, FaLightbulb, FaCog, FaLink, FaBrain, FaSearch, FaSync, FaStream, FaCogs, FaTree, FaSitemap } from 'react-icons/fa';
 import { GiNetworkBars } from 'react-icons/gi';
 import { motion } from 'framer-motion';
@@ -23,6 +24,12 @@ export default function PromptEngineeringScreen() {
     { name: 'Graph Prompting', description: 'Use graph structures to guide model responses.', icon: <FaSitemap />, link: '/prompt-engineering/graph-prompting', bgColor: 'bg-green-700' },
   ];
 
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredTechniques = techniques.filter(technique =>
+    technique.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-10 px-6">
       <motion.h1
@@ -43,6 +50,16 @@ export default function PromptEngineeringScreen() {
         Explore advanced techniques to craft better prompts for Large Language Models.
       </motion.p>
 
+      <div className="flex justify-center mb-8">
+        <input
+          type="text"
+          className="text-black w-full max-w-lg px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+          placeholder="Search for a technique..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         initial="hidden"
@@ -52,7 +69,7 @@ export default function PromptEngineeringScreen() {
           visible: { opacity: 1, transition: { delay: 0.2, staggerChildren: 0.1 } },
         }}
       >
-        {techniques.map((technique, index) => (
+        {filteredTechniques.map((technique, index) => (
           <Link href={technique.link} key={index}>
             <motion.div
               className={`relative p-6 rounded-lg shadow-lg ${technique.bgColor} transition-colors duration-300 cursor-pointer hover:bg-opacity-90 text-white`}
