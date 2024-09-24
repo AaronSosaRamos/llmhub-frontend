@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FaServer, FaCloud, FaCogs, FaRocket, FaSyncAlt, FaToolbox, FaNetworkWired } from 'react-icons/fa';
-import { GiArtificialHive } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
