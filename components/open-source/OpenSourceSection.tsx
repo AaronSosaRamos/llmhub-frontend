@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaRobot, FaCodeBranch, FaToolbox, FaDatabase, FaCube, FaServer, FaCog } from 'react-icons/fa';
+import { FaRobot, FaCodeBranch, FaToolbox, FaDatabase, FaServer, FaCog } from 'react-icons/fa';
 import { GiArtificialHive } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -50,7 +50,7 @@ const openSourceSections = [
   {
     name: 'Open-Source LLM Tools',
     description: 'Tools and utilities to help with LLM training and evaluation.',
-    icon: <FaToolbox />,
+    icon: <FaCodeBranch />,
     link: '/open-source/tools',
     bgColor: 'bg-teal-500',
   },

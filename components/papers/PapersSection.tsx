@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaFilePdf, FaBrain, FaCogs, FaSearch, FaBook, FaNetworkWired, FaBookOpen, FaGlobe } from 'react-icons/fa';
+import { FaBrain, FaCogs, FaSearch, FaBook, FaNetworkWired, FaBookOpen, FaGlobe } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
