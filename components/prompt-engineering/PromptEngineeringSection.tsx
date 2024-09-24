@@ -1,4 +1,4 @@
-import { FaRobot, FaLightbulb, FaCog, FaLink, FaBrain, FaSearch, FaSync, FaStream, FaBook, FaCogs, FaTree, FaSitemap } from 'react-icons/fa';
+import { FaRobot, FaLightbulb, FaCog, FaLink, FaBrain, FaSearch, FaSync, FaStream, FaCogs, FaTree, FaSitemap } from 'react-icons/fa';
 import { GiNetworkBars } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
