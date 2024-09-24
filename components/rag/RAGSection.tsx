@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaSearch, FaCog, FaLayerGroup, FaStream, FaBrain, FaLink, FaProjectDiagram, FaFilter, FaTools, FaChartLine, FaSyncAlt, FaNetworkWired } from 'react-icons/fa';
+import { FaSearch, FaCog, FaLayerGroup, FaStream, FaBrain, FaProjectDiagram, FaFilter, FaTools, FaChartLine, FaSyncAlt, FaNetworkWired } from 'react-icons/fa';
 import { GiArtificialHive, GiBrain } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
