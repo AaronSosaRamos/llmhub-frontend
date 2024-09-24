@@ -66,7 +66,7 @@ export default function Navbar() {
                       {services.map((service, index) => (
                         <Menu.Item key={index}>
                           {({ active }) => (
-                            <Link href={`#${service.toLowerCase().replace(/\s+/g, '-')}`}>
+                            <Link href={`${service.toLowerCase().replace(/\s+/g, '-')}`}>
                               <span
                                 className={`block px-4 py-2 text-sm ${
                                   active ? 'bg-gray-100 dark:bg-gray-700' : ''
