@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaCogs, FaMicrochip, FaBolt, FaTachometerAlt, FaChartBar, FaDatabase, FaBalanceScale, FaCloud } from 'react-icons/fa';
+import { FaCogs, FaMicrochip, FaBolt, FaChartBar, FaDatabase, FaBalanceScale, FaCloud } from 'react-icons/fa';
 import { GiArtificialHive } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
